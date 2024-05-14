@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hitung Luas Persegi Panjang</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      h1 {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-top: 10px;
+        font-weight: bold;
+      }
+
+      input[type="number"] {
+        width: calc(100% - 22px);
+        padding: 10px;
+        margin-top: 5px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #28a745;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      button:hover {
+        background-color: #218838;
+      }
+
+      #hasil {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Hitung Luas Persegi Panjang</h1>
+      <form onsubmit="hitungLuas(); return false;">
+        <label for="panjang">Panjang:</label>
+        <input type="number" id="panjang" name="panjang" />
+
+        <label for="lebar">Lebar:</label>
+        <input type="number" id="lebar" name="lebar" />
+
+        <button type="submit">Hitung</button>
+      </form>
+      <p id="hasil"></p>
+    </div>
+    <script>
+      function hitungLuas() {
+        // Menjadi elemen dengan id panjang dan lebar dan diambil valuenya
+        let panjang = parseFloat(document.getElementById("panjang").value);
+        let lebar = parseFloat(document.getElementById("lebar").value);
+        // Kondisi jika panjang dan lebar Nan/null
+        if (isNaN(panjang) || isNaN(lebar)) {
+          alert("Masukkan nilai numerik untuk panjang dan lebar.");
+          return;
+        }
+        // Rumus Luas Persegi Panjang
+        let luas = panjang * lebar;
+        // Seleksi DOM elemen dengan id hasil untuk menampilkan hasil
+        document.getElementById("hasil").innerText =
+          "Luas Persegi Panjang: " + luas + " satuan persegi";
+      }
+    </script>
+  </body>
+</html>
